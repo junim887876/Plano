@@ -16,58 +16,62 @@
             overflow-x: hidden;
         }
 
-        /* Imagem Fluida "Bem na cara" */
+        /* Imagem Fluida */
         .hero { width: 100%; display: flex; justify-content: center; background: #000; }
-        .hero img { 
-            width: 100%; 
-            max-width: 800px; /* Evita que fique estourada em monitores gigantes */
-            height: auto; 
-            display: block; 
+        .hero img { width: 100%; max-width: 800px; height: auto; display: block; }
+
+        /* Seção do Formulário Marketeiro */
+        .cadastro { padding: 40px 20px 80px; text-align: center; background: #111; display: flex; justify-content: center; }
+        .form-container { width: 100%; max-width: 500px; background: #1a1a1a; padding: 30px 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .form-container h2 { color: #f7a01a; margin-bottom: 20px; font-size: 1.6rem; }
+        .form-container p { font-size: 0.9rem; color: #aaa; margin-bottom: 25px; }
+
+        /* Campos de Input */
+        .input-group { margin-bottom: 15px; text-align: left; }
+        .input-group label { display: block; margin-bottom: 5px; font-size: 0.9rem; font-weight: bold; color: #ddd; }
+        .input-group input { 
+            width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #333; 
+            background: #0a0a0a; color: #fff; font-size: 1rem; transition: 0.3s;
         }
+        .input-group input:focus { outline: none; border-color: #f7a01a; box-shadow: 0 0 8px rgba(247, 160, 26, 0.3); }
 
-        /* Seção de Links de Pagamento */
-        .pagamento { padding: 60px 20px; text-align: center; background: #111; }
-        .pagamento h2 { color: #f7a01a; margin-bottom: 35px; font-size: 1.8rem; }
-        .botoes { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-
-        /* Estilo Base dos Botões */
-        .btn {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding: 18px 30px; border-radius: 8px; text-decoration: none; font-weight: bold;
-            transition: all 0.3s ease; min-width: 280px; border: 2px solid;
+        /* Seleção de Plano Visual (Inovação) */
+        .planos-grid { display: flex; gap: 15px; margin-bottom: 25px; }
+        .planos-grid label { flex: 1; cursor: pointer; }
+        .planos-grid input[type="radio"] { display: none; }
+        .card-plano { 
+            border: 2px solid #333; border-radius: 8px; padding: 15px 10px; text-align: center;
+            transition: all 0.3s; background: #0a0a0a; height: 100%; display: flex; flex-direction: column; justify-content: center;
         }
-        .btn span:nth-child(1) { font-size: 1.3rem; margin-bottom: 5px; }
-        .btn span:nth-child(2) { font-size: 1rem; font-weight: normal; }
-
-        /* Inovação: Animação sutil para atrair o clique */
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(247, 160, 26, 0.4); }
-            50% { transform: scale(1.02); box-shadow: 0 0 15px 0 rgba(247, 160, 26, 0.2); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(247, 160, 26, 0); }
+        .card-plano h4 { color: #fff; margin-bottom: 5px; font-size: 1.1rem; }
+        .card-plano span { color: #aaa; font-size: 0.9rem; }
+        
+        /* Efeito ao Selecionar o Plano */
+        .planos-grid input[type="radio"]:checked + .card-plano { 
+            border-color: #f7a01a; background: rgba(247, 160, 26, 0.1); 
+            transform: translateY(-3px); box-shadow: 0 5px 15px rgba(247, 160, 26, 0.2);
         }
+        .planos-grid input[type="radio"]:checked + .card-plano h4 { color: #f7a01a; }
 
-        .black-card { 
-            border-color: #f7a01a; color: #f7a01a; 
-            animation: pulse 2.5s infinite; /* Chama atenção para o plano de entrada */
+        /* Botão de Envio */
+        .btn-submit {
+            width: 100%; padding: 18px; border: none; border-radius: 8px; background: #f7a01a;
+            color: #000; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1px;
         }
-        .black-card:hover { background: #f7a01a; color: #000; animation: none; transform: translateY(-3px); }
+        .btn-submit:hover { background: #e08f15; transform: scale(1.02); }
+        .btn-submit:disabled { background: #555; color: #888; cursor: not-allowed; transform: none; }
 
-        .ultra-black { border-color: #fff; color: #fff; }
-        .ultra-black:hover { background: #fff; color: #000; transform: translateY(-3px); }
-
-        /* Inovação: Botão de WhatsApp Flutuante */
+        /* WhatsApp Flutuante */
         .zap-flutuante {
-            position: fixed; bottom: 25px; right: 25px;
-            background: #25D366; color: white; border-radius: 50px;
-            padding: 12px 24px; text-decoration: none; font-weight: bold; font-size: 0.9rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6); transition: 0.3s; z-index: 1000;
+            position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; 
+            border-radius: 50px; padding: 12px 24px; text-decoration: none; font-weight: bold; 
+            font-size: 0.9rem; box-shadow: 0 4px 15px rgba(0,0,0,0.6); transition: 0.3s; z-index: 1000;
         }
         .zap-flutuante:hover { background: #1ebd57; transform: translateY(-3px); }
 
-        /* Responsividade para Celulares */
         @media (max-width: 600px) {
-            .btn { width: 100%; min-width: auto; }
-            .pagamento h2 { font-size: 1.5rem; }
+            .planos-grid { flex-direction: column; gap: 10px; }
             .zap-flutuante { bottom: 15px; right: 15px; padding: 10px 20px; }
         }
     </style>
@@ -78,26 +82,98 @@
         <img src="anuncio.jpg" alt="Planos de Assinatura Barber Junim">
     </main>
 
-    <section class="pagamento">
-        <h2>Garanta seu plano agora:</h2>
-        <div class="botoes">
+    <section class="cadastro" id="assinar">
+        <div class="form-container">
+            <h2>Quase lá, Chefe!</h2>
+            <p>Preencha rápido para garantir seu plano e ir para o pagamento seguro.</p>
             
-            <a href="https://mpago.la/2mALeEa" class="btn black-card">
-                <span>Assinar Black Card</span>
-                <span>R$ 89,90/mês</span>
-            </a>
+            <form id="assinaturaForm">
+                <div class="input-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="nome" required placeholder="Ex: João da Silva">
+                </div>
+                <div class="input-group">
+                    <label>WhatsApp</label>
+                    <input type="tel" id="telefone" required placeholder="(XX) XXXXX-XXXX">
+                </div>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" id="email" required placeholder="seu@email.com">
+                </div>
 
-            <a href="https://mpago.la/16ifaAN" class="btn ultra-black">
-                <span>Assinar Ultra Black</span>
-                <span>R$ 129,90/mês</span>
-            </a>
+                <div class="planos-grid">
+                    <label>
+                        <input type="radio" name="plano" value="black" required checked>
+                        <div class="card-plano">
+                            <h4>Black Card</h4>
+                            <span>R$ 89,90/mês</span>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="plano" value="ultra">
+                        <div class="card-plano">
+                            <h4>Ultra Black</h4>
+                            <span>R$ 129,90/mês</span>
+                        </div>
+                    </label>
+                </div>
 
+                <button type="submit" class="btn-submit" id="btnSubmit">Continuar para Pagamento ➔</button>
+            </form>
         </div>
     </section>
 
-    <a href="https://wa.me/5562984099756" target="_blank" class="zap-flutuante">
+    <a href="https://wa.me/5562984099756?text=Fala%20Junim!%20Estou%20no%20site%20e%20preciso%20de%20ajuda%20com%20a%20assinatura." target="_blank" class="zap-flutuante">
         Dúvidas? Chama no Zap!
     </a>
 
+    <script>
+        document.getElementById('assinaturaForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede o reload da página
+            
+            const btn = document.getElementById('btnSubmit');
+            btn.innerHTML = 'Preparando Pagamento... ⌛';
+            btn.disabled = true;
+
+            // Coleta os dados
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const email = document.getElementById('email').value;
+            const planoSelecionado = document.querySelector('input[name="plano"]:checked').value;
+            
+            const nomePlano = planoSelecionado === 'black' ? 'Black Card' : 'Ultra Black';
+
+            // Monta os dados para o Google Forms
+            const formData = new FormData();
+            formData.append('entry.1378281230', nome);
+            formData.append('entry.103095007', telefone);
+            formData.append('entry.571449047', email);
+            formData.append('entry.580674714', nomePlano);
+
+            // URL exata de envio do seu form
+            const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLScpTP3r3N8gFO8Idx1mcGzk2WH-xWJiQP4n7RufPDel6kH7rQ/formResponse';
+
+            // Faz o envio silencioso
+            fetch(googleFormURL, {
+                method: 'POST',
+                mode: 'no-cors', // Fundamental para não dar erro de bloqueio (CORS) e ser invisível
+                body: formData
+            }).then(() => {
+                redirecionarPagamento(planoSelecionado);
+            }).catch(() => {
+                // Mesmo se a rede do cliente oscilar na hora de salvar na planilha,
+                // enviamos pro Mercado Pago para você não perder a venda!
+                redirecionarPagamento(planoSelecionado);
+            });
+        });
+
+        function redirecionarPagamento(plano) {
+            if(plano === 'black') {
+                window.location.href = 'https://mpago.la/2mALeEa'; // Link Black Card
+            } else {
+                window.location.href = 'https://mpago.la/16ifaAN'; // Link Ultra Black
+            }
+        }
+    </script>
 </body>
 </html>
